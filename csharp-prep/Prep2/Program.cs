@@ -32,10 +32,6 @@ class Program
         {
             letter_print = "F";
         }
-        if (grade_perc >= 60)
-        {
-
-        }
         Console.WriteLine($"Your grade is {letter_print}");
         if (letter_print == "A"|| letter_print == "B"|| letter_print == "C"|| letter_print == "D")
         {
