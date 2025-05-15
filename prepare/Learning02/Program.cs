@@ -13,8 +13,8 @@ class Program
         Job job2 = new Job();
         job2._jobTitle = "Game Developer";
         job2._company = "Sony";
-        job1._startYear = 2016;
-        job1._endYear= 2021;
+        job2._startYear = 2016;
+        job2._endYear= 2021;
 
         Resume myResume = new Resume();
         myResume.name = "John Smith";
