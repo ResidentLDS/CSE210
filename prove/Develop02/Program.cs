@@ -5,11 +5,11 @@ using System.IO;
 //Console.WriteLine("");
 class Program
 {
-    static List<string> ListOfEntries = new List<string>();
+    static List<string> _listOfEntries = new List<string>();
     static string Entry()
     {
-        String Date = DateTime.Now.ToString("yyyy-MM-dd"); //Get's the date of the entry
-        List<string> question_list = new List<string> //List of Questions
+        String _date = DateTime.Now.ToString("yyyy-MM-dd"); //Get's the date of the entry
+        List<string> _questionList = new List<string> //List of Questions
         {
             "What was the best part of your day?",
             "What was a hard thing you accomplished today?",
@@ -20,13 +20,13 @@ class Program
             "How did you see the hand of the Lord in your life today?"
         };
         Random rand = new Random();//Selects a random number
-        String Question_Asked = question_list[rand.Next(question_list.Count)]; // Random question, also saves it for future use
+        String _questionAsked = _questionList[rand.Next(_questionList.Count)]; // Random question, also saves it for future use
         Console.WriteLine("");
-        Console.WriteLine(Question_Asked);
+        Console.WriteLine(_questionAsked);
         Console.Write("---> ");
-        string Entry = Console.ReadLine();
+        string _entry = Console.ReadLine();
         Console.WriteLine("");
-        return $"Date: {Date} - Prompt {Question_Asked} \n{Entry}";
+        return $"|Date: {_date} - Prompt {_questionAsked} \n{_entry}|";
     }
 
     static void Journal()
@@ -41,27 +41,27 @@ class Program
             Console.WriteLine("4. Save");
             Console.WriteLine("5. Quit");
             Console.Write("What would you like to do? (Please enter the number): ");
-            string typed_in = Console.ReadLine();
-            int choice = int.Parse(typed_in);
+            string _typedIn = Console.ReadLine();
+            int choice = int.Parse(_typedIn);
             switch (choice)
             {
                 case 1:
-                    String entry = Entry();
-                    ListOfEntries.Add(entry);
+                    String _entry = Entry();
+                    _listOfEntries.Add(_entry);
                     break;
                 case 2:
                     Console.WriteLine("");
                     Console.WriteLine("--Journal Entries--");
-                    foreach (var e in ListOfEntries)
+                    foreach (var e in _listOfEntries)
                     {
                         Console.WriteLine(e + "\n");
                     }
                     break;
                 case 3:
                     Console.Write("Enter filename to load: ");
-                    string LoadFile = Console.ReadLine();
+                    string _loadFile = Console.ReadLine();
                     Console.WriteLine("");
-                    string[] lines = File.ReadAllLines(LoadFile);
+                    string[] lines = File.ReadAllLines(_loadFile);
                     foreach (string line in lines)
                     {
                         Console.WriteLine(line);
@@ -70,8 +70,8 @@ class Program
                     break;
                 case 4:
                     Console.Write("What is the file name: ");
-                    string SaveFile = Console.ReadLine();;
-                    File.WriteAllLines(SaveFile, ListOfEntries);
+                    string _saveFile = Console.ReadLine();;
+                    File.WriteAllLines(_saveFile, _listOfEntries);
                     Console.WriteLine("Journal saved.\n");
                     break;
                 case 5:
