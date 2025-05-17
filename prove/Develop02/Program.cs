@@ -59,9 +59,9 @@ class Program
                     break;
                 case 3:
                     Console.Write("Enter filename to load: ");
+                    string LoadFile = Console.ReadLine();
                     Console.WriteLine("");
-                    string loadFile = Console.ReadLine();
-                    string[] lines = File.ReadAllLines(loadFile);
+                    string[] lines = File.ReadAllLines(LoadFile);
                     foreach (string line in lines)
                     {
                         Console.WriteLine(line);
