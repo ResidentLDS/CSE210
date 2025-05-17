@@ -6,6 +6,7 @@ using System.IO;
 class Program
 {
     static List<string> _listOfEntries = new List<string>();
+    static string _saveLocation = @"C:\CSE\CSE210\prove\Develop02\Journals";
     static string Entry()
     {
         String _date = DateTime.Now.ToString("yyyy-MM-dd"); //Get's the date of the entry
@@ -60,8 +61,9 @@ class Program
                 case 3:
                     Console.Write("Enter filename to load: ");
                     string _loadFile = Console.ReadLine();
+                    string _fullLoadFile = Path.Combine(_saveLocation, _loadFile);
                     Console.WriteLine("");
-                    string[] lines = File.ReadAllLines(_loadFile);
+                    string[] lines = File.ReadAllLines(_fullLoadFile);
                     foreach (string line in lines)
                     {
                         Console.WriteLine(line);
@@ -70,8 +72,9 @@ class Program
                     break;
                 case 4:
                     Console.Write("What is the file name: ");
-                    string _saveFile = Console.ReadLine();;
-                    File.WriteAllLines(_saveFile, _listOfEntries);
+                    string _saveFile = Console.ReadLine();
+                    string _fullSaveFile = Path.Combine(_saveLocation, _saveFile);
+                    File.WriteAllLines(_fullSaveFile, _listOfEntries);
                     Console.WriteLine("Journal saved.\n");
                     break;
                 case 5:
