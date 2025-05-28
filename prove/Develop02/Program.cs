@@ -13,14 +13,14 @@ class Entry
     public string Date { get; set; }
     public string Prompt { get; set; }
     public string JournalEntry{ get; set; } //I couldn't get the JSON to work and I noticed it had this on the website and it worked, so I have the {get; set;} now
-    public Entry(string prompt, string entry)
+    public Entry(string _prompt, string _entry)
     {
         Date = DateTime.Now.ToString("yyyy-MM-dd"); //Get's the date of the entry and put it into public variable
-        Prompt = prompt; //Puts the question or writing prompt into a accessable variable
-        JournalEntry = entry; //Same as last things, make entry accessable outside of it's own function 
+        Prompt = _prompt; //Puts the question or writing prompt into a accessable variable
+        JournalEntry = _entry; //Same as last things, make entry accessable outside of it's own function 
 
     }
-    public Entry() { }
+    public Entry(){ } // I couldn't get it to read the files until I added this, I don't know why. ChatGPT actually suggested it after I was troublshooting it for around 40 minutes.
 
     public string ConvertToString()
     {
