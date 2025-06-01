@@ -109,10 +109,11 @@ class Journal//For almost all the code I copied over from my previous program wi
         Console.WriteLine();
         string _convert = File.ReadAllText(_loadFile + ".json");//Uses user input to find the file by using name and saves it as a string
         List<Entry> lines = JsonSerializer.Deserialize<List<Entry>>(_convert);
-        foreach (var line in lines)//Prints the string so that it can be read by the user
+        _entries.Clear()
+        foreach (Entry line in lines)//Prints the string so that it can be read by the user
         {
             Console.WriteLine(line.ConvertToString());//Prints Line by line
-            Console.WriteLine();
+            _entries.Add(line)
         }
     }
 
