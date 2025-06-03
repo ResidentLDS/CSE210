@@ -53,6 +53,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox", "sandbox\Sandbox\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "word counter", "word counter\word counter.csproj", "{AD1E2243-A379-4A83-8F51-4AEEC43A980B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Person", "prove\Person\Person.csproj", "{83B1D742-0BE7-4424-89C4-28A6CE444EAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +141,10 @@ Global
 		{AD1E2243-A379-4A83-8F51-4AEEC43A980B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD1E2243-A379-4A83-8F51-4AEEC43A980B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD1E2243-A379-4A83-8F51-4AEEC43A980B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83B1D742-0BE7-4424-89C4-28A6CE444EAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83B1D742-0BE7-4424-89C4-28A6CE444EAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83B1D742-0BE7-4424-89C4-28A6CE444EAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83B1D742-0BE7-4424-89C4-28A6CE444EAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -163,6 +169,7 @@ Global
 		{6EFA7E37-55C4-4569-8408-51FEC51253C8} = {D3BA622E-FCA6-41E6-B200-7CBA93CCF9BD}
 		{CE581B79-D008-42B5-A427-F06EC6F00A55} = {D3BA622E-FCA6-41E6-B200-7CBA93CCF9BD}
 		{80DC8317-35BE-4231-A364-4C264F67218C} = {9BD1CAC1-4326-4D59-9857-A733451B87EB}
+		{83B1D742-0BE7-4424-89C4-28A6CE444EAA} = {D3BA622E-FCA6-41E6-B200-7CBA93CCF9BD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19AF66DC-EAD7-4425-8965-A7DBC84E77B9}

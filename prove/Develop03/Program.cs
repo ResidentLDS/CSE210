@@ -3,7 +3,7 @@ using System.Security.Cryptography.X509Certificates;
 public class Scripture
 {
     private List<Word> Words;
-    
+    private Reference ScriptureReference;
 
     public Scripture(string _text)
     {
@@ -12,8 +12,7 @@ public class Scripture
 
     public void DisplayScripture(string key)
     {
-        Word _words = new Word();
-        DisplayText();
+        
     }
 
 }
@@ -27,9 +26,8 @@ class Reference
         ScriptureReference = _reference;
     }
 
-    public void ScripturePrint(Reference _key)
+    public void ScripturePrint(Scripture _scripture)
     {
-        Scripture _scripture = new Scripture();
         Console.Write(ScriptureReference);
         _scripture.DisplayScripture(ScriptureReference);
     }
@@ -42,7 +40,8 @@ class Word
 
     public Word(string text)
     {
-        Text = text
+        Text = text;
+        Hidden = false;
     }
 
     public void DisplayText()
@@ -60,6 +59,11 @@ class Word
         {
             Console.Write(Text);
         }
+    }
+
+    public void Hide()
+    {
+        Hidden = true;
     }
 }
 
