@@ -1,37 +1,8 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
-public class Scripture
-{
-    private List<Word> Words;
-    private Reference ScriptureReference;
+using Microsoft.VisualBasic;
 
-    public Scripture(string _text)
-    {
-        Words = _text.Split(' ').Select(word => new Word(word)).ToList();
-    }
-
-    public void DisplayScripture(string key)
-    {
-        
-    }
-
-}
-
-class Reference
-{
-    public string ScriptureReference;
-
-    public Reference(string _reference)
-    {
-        ScriptureReference = _reference;
-    }
-
-    public void ScripturePrint(Scripture _scripture)
-    {
-        Console.Write(ScriptureReference);
-        _scripture.DisplayScripture(ScriptureReference);
-    }
-}
 
 class Word
 {
@@ -69,23 +40,30 @@ class Word
 
 class Program
 {
-    public static Dictionary<string, string> _scriptures = new Dictionary<string, string>()
-        {
-            { "John 3:16", "For God so loved the world that he gave his only Son, that whoever believes in him should not perish but have eternal life."},
-            { "Proverbs 3:5-6", "Trust in the Lord with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths."},
-            { "1 Nephi 3:7", "And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them."}
-        };
     static string GetRandomReference()
     {
         Random rand = new Random();
-        List<string> _reference = _scriptures.Keys.ToList();
-        string _key = _reference[rand.Next(_reference.Count)];
-        return _key;
+        int number = rand.Next(1, 4);
+        return $"_scripture_{number}";
+    }
+
+    static Reference GetReference((string, int, int, int, string) _wholeScripture)
+    {
+        string _book =
     }
     static void Main(string[] args)
     {
+        var scriptures = new Dictionary<string, (string, int, int, int, string)>
+        {
+            ["_scripture_1"] = ("John", 3, 16, 0, "For God so loved the world that he gave his only Son, that whoever believes in him should not perish but have eternal life."),
+            ["_scripture_2"] = ("Proverbs", 3, 5, 6, "Trust in the Lord with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths."),
+            ["_scripture_3"] = ("1 Nephi", 3, 7, 0, "And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them."),
+        };
+
         string _interem = GetRandomReference();
-        Reference _reference = new Reference(_interem);
+        var _median = scriptures[_interem];
+        
+        Reference _reference = new Reference();
         bool _quiz = true;
         while (_quiz)
         {
@@ -99,9 +77,9 @@ class Program
             }
             else
             {
-                RemoveLetters();
+
             }
         }
         Console.WriteLine("Goodbye!");
-        }
+    }
 }
