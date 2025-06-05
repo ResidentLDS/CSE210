@@ -1,9 +1,9 @@
 class Reference
 {
-    public string Book;
-    public int Chapter;
-    public int StartVerse;
-    public int EndVerse;
+    private string Book;
+    private int Chapter;
+    private int StartVerse;
+    private int EndVerse;
 
     public Reference(string _book, int _chapter, int _startVerse, int _endVerse)
     {
