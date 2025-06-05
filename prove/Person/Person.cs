@@ -4,14 +4,6 @@ class Person
     private string LastName;
     private int Age;
 
-    public Person()
-    {
-        FirstName = "";
-        LastName = "";
-        Age = 0;
-
-    }
-
     public Person(string _lastName, string _firstName, int _age)
     {
         FirstName = _firstName;
