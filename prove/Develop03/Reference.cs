@@ -1,28 +1,28 @@
 class Reference
 {
-    private string Book;
-    private int Chapter;
-    private int StartVerse;
-    private int EndVerse;
+    private string _book;
+    private int _chapter;
+    private int _startVerse;
+    private int _endVerse;
 
-    public Reference(string _book, int _chapter, int _startVerse, int _endVerse)
+    public Reference(string book, int chapter, int startVerse, int endVerse)
     {
-        Book = _book;
-        Chapter = _chapter;
-        StartVerse = _startVerse;
-        EndVerse = _endVerse;
+        _book = book;
+        _chapter = chapter;
+        _startVerse = startVerse;
+        _endVerse = endVerse;
     }
 
     public string ReferncePrint()
     {
 
-        if (EndVerse == 0)
+        if (_endVerse == 0)
         {
-            return ($"{Book} {Chapter}:{StartVerse} ");
+            return ($"{_book} {_chapter}:{_startVerse} ");
         }
         else
         {
-            return ($"{Book} {Chapter}:{StartVerse}-{EndVerse} ");
+            return ($"{_book} {_chapter}:{_startVerse}-{_endVerse} ");
         }
          // I want to freaking slam my head into the wall. This was far simpler than I was making it out to be in my head.
     }

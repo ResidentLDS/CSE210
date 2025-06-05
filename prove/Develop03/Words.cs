@@ -2,12 +2,12 @@ using System.Collections.Concurrent;
 
 class Word
 {
-    private string Text;
+    private string _text;
     private bool Hidden;
 
     public Word(string text)
     {
-        Text = text;
+        _text = text;
         Hidden = false;
     }
 
@@ -16,7 +16,7 @@ class Word
 
         if (Hidden)
         {
-            foreach (char c in Text)
+            foreach (char c in _text)
             {
                 Console.Write("_");
             }
@@ -25,7 +25,7 @@ class Word
         }
         else
         {
-            Console.Write(Text);
+            Console.Write(_text);
             Console.Write(" ");
         }
     }
