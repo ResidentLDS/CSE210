@@ -34,7 +34,7 @@ class Program
         Console.Clear();
         Console.Write(_printReference);
         _scripture.PrintScripture();
-        Console.WriteLine("\n\nPress enter to continue or type 'quit' to finish:");
+        Console.Write("\n\nPress enter to continue or type 'quit' to finish: ");
         string _input = Console.ReadLine();
         return _input;
     }
@@ -77,6 +77,6 @@ class Program
                 }
             }
         }
-        Console.WriteLine("Goodbye!");
+        Console.WriteLine("\nGoodbye!");
     }
 }
