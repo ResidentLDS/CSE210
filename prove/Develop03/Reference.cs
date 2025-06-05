@@ -3,29 +3,27 @@ class Reference
     public string Book;
     public int Chapter;
     public int StartVerse;
-    public int? EndVerse;
-    public string Text;
+    public int EndVerse;
 
-    public Reference(string _book, int _chapter, int _startVerse, int _endVerse, string _text)
+    public Reference(string _book, int _chapter, int _startVerse, int _endVerse)
     {
         Book = _book;
         Chapter = _chapter;
         StartVerse = _startVerse;
         EndVerse = _endVerse;
-        Text = _text;
     }
 
-    public void ScripturePrint(Reference _scriptureReference)
+    public string ReferncePrint()
     {
 
         if (EndVerse == 0)
         {
-            Console.Write($"{Book} {Chapter}:{StartVerse}   ");
+            return ($"{Book} {Chapter}:{StartVerse} ");
         }
         else
         {
-            Console.Write($"{Book} {Chapter}:{StartVerse}-{EndVerse}   ");
+            return ($"{Book} {Chapter}:{StartVerse}-{EndVerse} ");
         }
-        
+         // I want to freaking slam my head into the wall. This was far simpler than I was making it out to be in my head.
     }
 }
