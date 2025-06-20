@@ -27,12 +27,14 @@ class Program
                     }
                 case 2:
                     {
-                        Listing myListing = new Listing();
-                        myListing.ListingActivity();
+                        Reflecting myReflecting = new Reflecting();
+                        myReflecting.ReflectingActivity();
                         break;
                     }
                 case 3:
                     {
+                        Listing myListing = new Listing();
+                        myListing.ListingActivity();
                         break;
                     }
                 case 4:

@@ -7,7 +7,7 @@ class Program
 
         DateTime currentTime = DateTime.Now;
         DateTime endTime = currentTime.AddSeconds(10);
-        // string animationString = "(°_°)(-_-)";
+        // string animationString = "(°_°)(^o^)()";
         string animationString2 = "x+";
         int count = time;
         int index = 0;

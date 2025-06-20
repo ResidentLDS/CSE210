@@ -8,7 +8,7 @@ class Activity
         name = _name;
         description = _description;
         Console.Clear();
-        Console.WriteLine($"Welcome to the {name}");
+        Console.WriteLine($"Welcome to the {name}!");
         Console.WriteLine($"\n{description}\n");
         Console.Write("How long, in seconds, would you like for your session? ");
         string _entry = Console.ReadLine();
@@ -57,5 +57,17 @@ class Activity
         Console.WriteLine();
         Console.WriteLine($"You have completed another {waitTime} seconds of the Breathing Activity.");
         PrintSpinner(6);
+    }
+
+    protected int PickPrompt(int prompts) //Gets a random number based on the length of the prompt and returns the prompt
+    {
+        Random rand = new Random();
+        int number = rand.Next(0, prompts);
+        return number;
+    }
+
+    protected void BeginIn()
+    {
+        Console.Write("You may begin in: "); PrintCounter(5);
     }
 }
