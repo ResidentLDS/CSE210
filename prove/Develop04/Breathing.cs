@@ -62,6 +62,6 @@ class Breathing : Activity
                 Console.Write("\b\b\b\b\b");
             }
         }
-        Console.Write("     ");
+        Console.Write("      ");
     }
 }
