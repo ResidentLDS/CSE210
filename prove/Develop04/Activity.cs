@@ -52,7 +52,7 @@ class Activity
 
     protected void ReturnCongrats()
     {
-        Console.WriteLine("Well Done!!");
+        Console.WriteLine("\nWell Done!!");
         PrintSpinner(3);
         Console.WriteLine();
         Console.WriteLine($"You have completed another {waitTime} seconds of the Breathing Activity.");

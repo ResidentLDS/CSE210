@@ -43,10 +43,11 @@ class Reflecting : Activity
         while (DateTime.Now < _endTime)
         {
             int number = PickPrompt(prompts.Count);
-            Console.Write($"> {prompts[PickPrompt(prompts.Count)]}"); PrintSpinner(7);
+            Console.Write($"> {prompts[PickPrompt(prompts.Count)]} "); PrintSpinner(7); Console.Write("\n");
             prompts.Remove(prompts[number]);
+            
         }
-
+        ReturnCongrats();
     }
 
 }
