@@ -38,13 +38,11 @@ class Breathing : Activity
     }
     private void BreathingFace(int inorout, int _seconds)
     {
-        int timesThrough = 0;
         string face = "(°o°)(°O°)(-O-)(-o-)";
         DateTime currentTime = DateTime.Now;
         DateTime _endTime = currentTime.AddSeconds(_seconds);
-        while (timesThrough <_seconds) //(DateTime.Now < _endTime)
+        while (DateTime.Now < _endTime)
         {
-            timesThrough += 1;
             if (inorout == 1)
             {
                 Console.Write(face[0..5]);
@@ -64,7 +62,6 @@ class Breathing : Activity
                 Console.Write("\b\b\b\b\b");
             }
         }
-        Console.Write("\b\b\b\b\b");
         Console.Write("     ");
     }
 }
