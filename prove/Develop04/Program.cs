@@ -16,7 +16,7 @@ class Program
             Console.WriteLine("  4. Quit");
             Console.Write("Select a choice from the menu: ");
             string choice = Console.ReadLine();
-            int descision = int.Parse(choice);
+            int descision = int.try.Parse(choice);
             switch (descision)
             {
                 case 1:

@@ -15,7 +15,7 @@ class Reflecting : Activity
     public Reflecting()
     : base("Reflecting Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
     {
-        prompts = new List<string>
+        prompts = new List<string> //I put the list in here so that it could be edited each time this is called and it refreshes each time
         {
         "Why was this experience meaningful to you?",
         "Have you ever done anything like this before?",
@@ -39,11 +39,11 @@ class Reflecting : Activity
         BeginIn();
         DateTime _currentTime = DateTime.Now;
         DateTime _endTime = _currentTime.AddSeconds(waitTime);
-        Console.WriteLine();
+        Console.Clear();
         while (DateTime.Now < _endTime)
         {
             int number = PickPrompt(prompts.Count);
-            Console.Write($"> {prompts[PickPrompt(prompts.Count)]}"); PrintSpinner(5);
+            Console.Write($"> {prompts[PickPrompt(prompts.Count)]}"); PrintSpinner(7);
             prompts.Remove(prompts[number]);
         }
 
