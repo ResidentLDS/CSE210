@@ -47,4 +47,31 @@ class Menu
         return Goals;
     }
 
+    public Goal NewChecklistGoals()
+    {
+        Console.Write("What is the name of the goal? ");
+        string _name = Console.ReadLine();
+        Console.Write("What is a short description of it? ");
+        string _description = Console.ReadLine();
+        Console.Write("What is the amount of points associated with this goal? ");
+        int _points = int.Parse(Console.ReadLine());
+        Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+        int _times = int.Parse(Console.ReadLine());
+        Console.Write("What is the bonus for accomplishing it that many times? ");
+        int _bonus = int.Parse(Console.ReadLine());
+        ChecklistGoal Goals = new ChecklistGoal(_name, _description, _points, _times, _bonus);
+        return Goals;
+    }
+
+    // public Goal NewEternalGoal()
+    // {
+    //     Console.Write("What is the name of the goal? ");
+    //     string _name = Console.ReadLine();
+    //     Console.Write("What is a short description of it? ");
+    //     string _description = Console.ReadLine();
+    //     Console.Write("What is the amount of points associated with this goal? ");
+    //     int _points = int.Parse(Console.ReadLine());
+    //     EternalGoal Goals = new EternalGoal(_name, _description, _points);
+    //     return Goals;
+    // }
 }

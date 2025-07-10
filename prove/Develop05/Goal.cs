@@ -1,9 +1,9 @@
 class Goal
 {
-    private string title;
-    private string description;
-    private bool completion;
-    private int points;
+    protected string title;
+    protected string description;
+    protected bool completion;
+    protected int points;
 
     public Goal(string _title, string _description, int _points)
     {
@@ -16,36 +16,21 @@ class Goal
     {
         return title;
     }
-    public string GetDescription()
+    public virtual string GetDescription()
     {
-        return description;
+        return $"({description})";
     }
     public int GetPoints()
     {
         return points;
     }
-    public string GetCompletion()
+    public virtual string GetCompletion()
     {
-        if (completion == true)
-        {
-            return "[X]";
-        }
-        else
-        {
-            return "[ ]";
-        }
+        return "[ ]";
     }
-    public int CompleteGoal()
+    public virtual int CompleteGoal()
     {
-        if (completion == false)
-        {
-            completion = true;
-            return points;
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
 
 }

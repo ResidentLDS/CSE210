@@ -12,6 +12,7 @@ class Program
     {
         Menu myMenu = new Menu();
         Console.Clear();
+        int earned = 0;
 
         while (runProgram)
         {
@@ -32,10 +33,12 @@ class Program
                                 }
                             case 2:
                                 {
+                                    // goalList.Add(myMenu.NewEternalGoal());
                                     break;
                                 }
                             case 3:
                                 {
+                                    goalList.Add(myMenu.NewChecklistGoals());
                                     break;
                                 }
                             default:
@@ -51,7 +54,7 @@ class Program
                         int count = 1;
                         foreach (Goal g in goalList)
                         {
-                            Console.WriteLine($"{count}. {g.GetCompletion()} {g.GetTitle()} ({g.GetDescription()}) ");
+                            Console.WriteLine($"{count}. {g.GetCompletion()} {g.GetTitle()} {g.GetDescription()}");
                             count += 1;
                         }
                         break;
@@ -69,8 +72,17 @@ class Program
                 case 5:
                     {
                         int input = 0;
-
-                        points += goalList[input - 1].CompleteGoal();
+                        Console.WriteLine("The goals are:");
+                        int count = 1;
+                        foreach (Goal g in goalList)
+                        {
+                            Console.WriteLine($"{count}. {g.GetTitle()}");
+                        }
+                        Console.Write("What goal did you accomplish? ");
+                        input = int.Parse(Console.ReadLine());
+                        earned = goalList[input - 1].CompleteGoal();
+                        Console.WriteLine($"Congratulations! You have earned {earned} points!");
+                        points += earned;
                         break;
                     }
                 case 6:
