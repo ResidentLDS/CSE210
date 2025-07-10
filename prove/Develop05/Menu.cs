@@ -9,9 +9,9 @@ class Menu
         foreach (string choice in options_2)
         {
             Console.WriteLine($"  {count}. {choice}");
-            count =+ 1;
+            count += 1;
         }
-        Console.Write("Which type of goal would you like to create?");
+        Console.Write("Which type of goal would you like to create? ");
         int response = int.Parse(Console.ReadLine());
         return response;
     }
@@ -19,7 +19,6 @@ class Menu
     public int PrintMenu(bool annoyance)
     {
         int count = 1;
-        Console.Clear();
         if (annoyance)
         {
             Console.WriteLine("Please select a number 1-6");
@@ -35,4 +34,17 @@ class Menu
         int response = int.Parse(Console.ReadLine());
         return response;
     }
+
+    public Goal NewSimpleGoal()
+    {
+        Console.Write("What is the name of the goal? ");
+        string _name = Console.ReadLine();
+        Console.Write("What is a short description of it? ");
+        string _description = Console.ReadLine();
+        Console.Write("What is the amount of points associated with this goal? ");
+        int _points = int.Parse(Console.ReadLine());
+        SimpleGoal Goals = new SimpleGoal(_name, _description, _points);
+        return Goals;
+    }
+
 }
