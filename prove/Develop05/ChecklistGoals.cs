@@ -20,12 +20,7 @@ class ChecklistGoal : Goal
 
     public override int CompleteGoal()
     {
-        if (timesCompleted < timesToComplete)
-        {
-            timesCompleted += 1;
-            return points;
-        }
-        else if (timesCompleted == timesToComplete)
+        if (timesCompleted == timesToComplete)
         {
             if (completion == true)
             {
@@ -37,6 +32,11 @@ class ChecklistGoal : Goal
                 completion = true;
                 return bonus;
             }
+        }
+        else if (timesCompleted < timesToComplete)
+        {
+            timesCompleted += 1;
+            return points;
         }
         else //I decided to leave this here more as a fail safe just in case somehow it doesn't work propperly
         {
