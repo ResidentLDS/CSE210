@@ -8,7 +8,7 @@ class Program
     public static List<Goal> goalList = new List<Goal>();
     public static bool runProgram = true;
     public static bool annoyance = false;
-    public static int points = 0;
+    public static long points = 0;
     static void Main(string[] args)
     {
         Menu myMenu = new Menu();
@@ -81,7 +81,7 @@ class Program
                         Console.Write("What is the name of the goal file? ");
                         string file = Console.ReadLine();
                         List<string> lines = File.ReadAllLines(file).ToList();
-                        points += int.Parse(lines[0]);
+                        points += long.Parse(lines[0]);
                         lines.RemoveAt(0);
                         foreach (string g in lines)
                         {
@@ -135,6 +135,11 @@ class Program
                         break;
                     }
                 case 6:
+                    {
+
+                        break;
+                    }
+                case 7:
                     {
                         runProgram = false;
                         Console.Clear();

@@ -21,7 +21,7 @@ class Menu
         int count = 1;
         if (annoyance)
         {
-            Console.WriteLine("Please select a number 1-6");
+            Console.WriteLine("Please select a number 1-7");
             annoyance = false;
         }
         Console.WriteLine("Menu Options:");
@@ -73,5 +73,10 @@ class Menu
         int _points = int.Parse(Console.ReadLine());
         EternalGoal Goals = new EternalGoal(_name, _description, _points);
         return Goals;
+    }
+
+    public void GetTrophies(int points)
+    {
+        int[] mileStones = {15000,12000,10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000, 500 };
     }
 }
