@@ -1,6 +1,6 @@
 class Menu
 {
-    public static List<string> options = new List<string> { "Create New Goal", "List Goals", "Save Goals", "Load Goals", "Record Event", "Quit" };
+    public static List<string> options = new List<string> { "Create New Goal", "List Goals", "Save Goals", "Load Goals", "Record Event", "Achievements", "Quit" };
     public static List<string> options_2 = new List<string> { "Simple Goal", "Eternal Goal", "Checklist Goal" };
     public int GoalChoice()
     {
@@ -75,8 +75,48 @@ class Menu
         return Goals;
     }
 
-    public void GetTrophies(int points)
+    public void GetTrophies(long points)
     {
-        int[] mileStones = {15000,12000,10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000, 500 };
+        int next = 0;
+        string[] trophies = {
+            "Just getting started",
+            "Got your footing yet?",
+            "Warmed up",
+            "Dang, keep it going",
+            "Procrastination fears you!",
+            "Not tired yet, are we?",
+            "How much longer can this go on?",
+            "Apprentice of the goal keepers",
+            "Almost a pro",
+            "Perserverance pays off",
+            "Proficient in following through (You should try golf)",
+            "You're still here?",
+            "Now you're a pro",
+            "Master of the goal keepers",
+            "I'd say get a life but you obviously have one"};
+        int[] mileStones = { 100000, 15000, 12000, 10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000, 500, 250 };
+        Array.Reverse(mileStones);
+        int count = 1;
+        for (int i = 0; i < mileStones.Length; i++)
+        {
+            if (mileStones[i] <= points)
+            {
+                Console.WriteLine($"{count}. {trophies[i]}");
+                count += 1;
+            }
+            else
+            {
+                next = mileStones[i];
+                break;
+            }
+        }
+        if (count == 15)
+        {
+            Console.WriteLine("You got every achievement! Nice Job!");
+        }
+        else
+        {
+            Console.WriteLine($"Your next milestone is at {next} points");
+        }
     }
 }

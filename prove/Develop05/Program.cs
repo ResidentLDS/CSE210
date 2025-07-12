@@ -136,7 +136,7 @@ class Program
                     }
                 case 6:
                     {
-
+                        myMenu.GetTrophies(points);
                         break;
                     }
                 case 7:
