@@ -2,46 +2,63 @@ using System.Runtime.InteropServices;
 
 class ChecklistGoal : Goal
 {
-    int timesToComplete;
-    int timesCompleted;
-    int bonus;
+    private int timesToComplete;
+    private int timesCompleted;
+    private int bonus;
     public ChecklistGoal(string _title, string _description, int _points, int _timesToComplete, int _bonus)
     : base(_title, _description, _points)
     {
         timesCompleted = 0;
         timesToComplete = _timesToComplete;
         bonus = _bonus;
+        typeName = "ChecklistGoal";
     }
 
     public override string GetDescription()
     {
-        return $"({description}) -- Currently completed: {timesToComplete}/{timesCompleted}";
+        return $"({description}) -- Currently completed: {timesCompleted}/{timesToComplete}";
     }
 
     public override int CompleteGoal()
     {
-        if (timesCompleted == timesToComplete)
+        if (completion == true)
         {
-            if (completion == true)
-            {
-                Console.WriteLine("You already completed this goal!");
-                return 0;
-            }
-            else
-            {
-                completion = true;
-                return bonus;
-            }
+            Console.WriteLine("You already completed this goal!");
+            return 0;
         }
         else if (timesCompleted < timesToComplete)
         {
             timesCompleted += 1;
+            Console.WriteLine($"You completed this goal {timesCompleted}/{timesToComplete} times!");
+            if (timesCompleted == timesToComplete)
+            {
+                completion = true;
+                return bonus + points;
+            }
             return points;
         }
-        else //I decided to leave this here more as a fail safe just in case somehow it doesn't work propperly
+        else //I think this code is unreachable through logic but it wouldn't run without the "All paths do not return a value"
         {
-            Console.WriteLine("You've already completed this goal!");
+            timesCompleted = timesToComplete;
+            completion = true;
+            Console.WriteLine("You already completed this goal!"); //Just in case something weird happens I have this here, if somehow completion wasn't marked true
             return 0;
         }
     }
+
+    public override string GetSaveString()
+    {
+        return $"{base.GetSaveString()}, {timesToComplete}, {timesCompleted}, {bonus}";
+    }
+
+    public override void MarkComplete()
+    {
+        completion = true;
+        timesCompleted = timesToComplete;
+    }
+    public void GetAmount(int input)
+    {
+        timesCompleted = input;
+    }
+
 }

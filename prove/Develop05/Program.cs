@@ -1,5 +1,6 @@
 using System;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
 class Program
@@ -33,7 +34,7 @@ class Program
                                 }
                             case 2:
                                 {
-                                    // goalList.Add(myMenu.NewEternalGoal());
+                                    goalList.Add(myMenu.NewEternalGoal());
                                     break;
                                 }
                             case 3:
@@ -43,6 +44,7 @@ class Program
                                 }
                             default:
                                 {
+                                    Console.WriteLine("Please type a number 1-3");
                                     break;
                                 }
                         }
@@ -61,25 +63,68 @@ class Program
                     }
                 case 3:
                     {
+                        Console.Write("What is the name of the goal file? ");
+                        string file = Console.ReadLine();
+                        using (StreamWriter outputFile = new StreamWriter(file))
+                        {
 
+                            outputFile.WriteLine(points);
+                            foreach (Goal g in goalList)
+                            {
+                                outputFile.WriteLine(g.GetSaveString());
+                            }
+                        }
                         break;
                     }
                 case 4:
                     {
+                        Console.Write("What is the name of the goal file? ");
+                        string file = Console.ReadLine();
+                        List<string> lines = File.ReadAllLines(file).ToList();
+                        points += int.Parse(lines[0]);
+                        lines.RemoveAt(0);
+                        foreach (string g in lines)
+                        {
+                            string[] parts = g.Split(",");
+                            if (parts[0] == "EternalGoal")
+                            {
+                                EternalGoal goals = new EternalGoal(parts[1], parts[2], int.Parse(parts[3]));
+                                goalList.Add(goals);
+                            }
+                            else if (parts[0] == "ChecklistGoal")
+                            {
+                                ChecklistGoal Goals = new ChecklistGoal(parts[1], parts[2], int.Parse(parts[3]), int.Parse(parts[5]), int.Parse(parts[7]));
+                                Goals.GetAmount(int.Parse(parts[6]));
+                                 if (bool.Parse(parts[4]) == true)
+                                {
+                                    Goals.MarkComplete();
+                                }
+                                goalList.Add(Goals);
+                            }
+                            else
+                            {
+                                SimpleGoal goals = new SimpleGoal(parts[1], parts[2], int.Parse(parts[3]));
+                                if (bool.Parse(parts[4]) == true)
+                                {
+                                    goals.MarkComplete();
+                                }
+                                goalList.Add(goals);
+                            }
+                        }
 
-                        break;
+                            break;
                     }
                 case 5:
                     {
-                        int input = 0;
-                        Console.WriteLine("The goals are:");
+                        Console.WriteLine("The uncompleted goals are:");
                         int count = 1;
                         foreach (Goal g in goalList)
                         {
                             Console.WriteLine($"{count}. {g.GetTitle()}");
+                            count += 1;
                         }
                         Console.Write("What goal did you accomplish? ");
-                        input = int.Parse(Console.ReadLine());
+                        int input = int.Parse(Console.ReadLine());
                         earned = goalList[input - 1].CompleteGoal();
                         Console.WriteLine($"Congratulations! You have earned {earned} points!");
                         points += earned;

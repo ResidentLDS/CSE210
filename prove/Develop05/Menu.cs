@@ -63,15 +63,15 @@ class Menu
         return Goals;
     }
 
-    // public Goal NewEternalGoal()
-    // {
-    //     Console.Write("What is the name of the goal? ");
-    //     string _name = Console.ReadLine();
-    //     Console.Write("What is a short description of it? ");
-    //     string _description = Console.ReadLine();
-    //     Console.Write("What is the amount of points associated with this goal? ");
-    //     int _points = int.Parse(Console.ReadLine());
-    //     EternalGoal Goals = new EternalGoal(_name, _description, _points);
-    //     return Goals;
-    // }
+    public Goal NewEternalGoal()
+    {
+        Console.Write("What is the name of the goal? ");
+        string _name = Console.ReadLine();
+        Console.Write("What is a short description of it? ");
+        string _description = Console.ReadLine();
+        Console.Write("What is the amount of points associated with this goal? ");
+        int _points = int.Parse(Console.ReadLine());
+        EternalGoal Goals = new EternalGoal(_name, _description, _points);
+        return Goals;
+    }
 }
