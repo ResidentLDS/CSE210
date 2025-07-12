@@ -1,9 +1,9 @@
 class EternalGoal : Goal
 {
-    public EternalGoal(string _title, string _description, int _points)
-    : base(_title, _description, _points)
+    public EternalGoal(string title, string description, int points)
+    : base(title, description, points)
     {
-        typeName = "EternalGoal";
+        _typeName = "EternalGoal";
     }
 
     public override string GetCompletion()
@@ -13,7 +13,7 @@ class EternalGoal : Goal
 
     public override int CompleteGoal()
     {
-        completion = false; //Just to make sure that it never completes somehow (IDK how it would) it always sets completion to false
-        return points;
+        _completion = false; //Just to make sure that it never completes somehow (IDK how it would) it always sets completion to false
+        return _points;
     }
 }

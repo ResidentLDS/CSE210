@@ -2,45 +2,45 @@ using System.Runtime.InteropServices;
 
 class ChecklistGoal : Goal
 {
-    private int timesToComplete;
-    private int timesCompleted;
-    private int bonus;
-    public ChecklistGoal(string _title, string _description, int _points, int _timesToComplete, int _bonus)
+    private int _timesToComplete;
+    private int _timesCompleted;
+    private int _bonus;
+    public ChecklistGoal(string _title, string _description, int _points, int timesToComplete, int bonus)
     : base(_title, _description, _points)
     {
-        timesCompleted = 0;
-        timesToComplete = _timesToComplete;
-        bonus = _bonus;
-        typeName = "ChecklistGoal";
+        _timesCompleted = 0;
+        _timesToComplete = timesToComplete;
+        _bonus = bonus;
+        _typeName = "ChecklistGoal";
     }
 
     public override string GetDescription()
     {
-        return $"({description}) -- Currently completed: {timesCompleted}/{timesToComplete}";
+        return $"({_description}) -- Currently completed: {_timesCompleted}/{_timesToComplete}";
     }
 
     public override int CompleteGoal()
     {
-        if (completion == true)
+        if (_completion == true)
         {
             Console.WriteLine("You already completed this goal!");
             return 0;
         }
-        else if (timesCompleted < timesToComplete)
+        else if (_timesCompleted < _timesToComplete)
         {
-            timesCompleted += 1;
-            Console.WriteLine($"You completed this goal {timesCompleted}/{timesToComplete} times!");
-            if (timesCompleted == timesToComplete)
+            _timesCompleted += 1;
+            Console.WriteLine($"You completed this goal {_timesCompleted}/{_timesToComplete} times!");
+            if (_timesCompleted == _timesToComplete)
             {
-                completion = true;
-                return bonus + points;
+                _completion = true;
+                return _bonus + _points;
             }
-            return points;
+            return _points;
         }
         else //I think this code is unreachable through logic but it wouldn't run without the "All paths do not return a value"
         {
-            timesCompleted = timesToComplete;
-            completion = true;
+            _timesCompleted = _timesToComplete;
+            _completion = true;
             Console.WriteLine("You already completed this goal!"); //Just in case something weird happens I have this here, if somehow completion wasn't marked true
             return 0;
         }
@@ -48,17 +48,17 @@ class ChecklistGoal : Goal
 
     public override string GetSaveString()
     {
-        return $"{base.GetSaveString()}, {timesToComplete}, {timesCompleted}, {bonus}";
+        return $"{base.GetSaveString()}, {_timesToComplete}, {_timesCompleted}, {_bonus}";
     }
 
     public override void MarkComplete()
     {
-        completion = true;
-        timesCompleted = timesToComplete;
+        _completion = true;
+        _timesCompleted = _timesToComplete;
     }
     public void GetAmount(int input)
     {
-        timesCompleted = input;
+        _timesCompleted = input;
     }
 
 }

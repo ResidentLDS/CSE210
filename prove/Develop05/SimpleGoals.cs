@@ -1,16 +1,16 @@
 class SimpleGoal : Goal
 {
-    public SimpleGoal(string _title, string _description, int _points)
-    : base(_title, _description, _points)
+    public SimpleGoal(string title, string description, int points)
+    : base(title, description, points)
     {
-        typeName = "SimpleGoal";
+        _typeName = "SimpleGoal";
     }
     public override int CompleteGoal()
     {
-        if (completion == false)
+        if (_completion == false)
         {
-            completion = true;
-            return points;
+            _completion = true;
+            return _points;
         }
         else
         {
@@ -20,6 +20,6 @@ class SimpleGoal : Goal
     }
     public override void MarkComplete()
     {
-        completion = true;
+        _completion = true;
     }
 }

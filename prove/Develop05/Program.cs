@@ -86,6 +86,10 @@ class Program
                         foreach (string g in lines)
                         {
                             string[] parts = g.Split(",");
+                            for (int i = 0; i < parts.Length; i++)// without this there would be spaces at the beining of the title and description
+                            {
+                                parts[i] = parts[i].Trim();
+                            }
                             if (parts[0] == "EternalGoal")
                             {
                                 EternalGoal goals = new EternalGoal(parts[1], parts[2], int.Parse(parts[3]));
@@ -95,7 +99,7 @@ class Program
                             {
                                 ChecklistGoal Goals = new ChecklistGoal(parts[1], parts[2], int.Parse(parts[3]), int.Parse(parts[5]), int.Parse(parts[7]));
                                 Goals.GetAmount(int.Parse(parts[6]));
-                                 if (bool.Parse(parts[4]) == true)
+                                if (bool.Parse(parts[4]) == true)
                                 {
                                     Goals.MarkComplete();
                                 }

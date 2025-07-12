@@ -2,34 +2,34 @@ using System.Numerics;
 
 class Goal
 {
-    protected string title;
-    protected string description;
-    protected bool completion;
-    protected int points;
-    protected string typeName;
+    protected string _title;
+    protected string _description;
+    protected bool _completion;
+    protected int _points;
+    protected string _typeName;
 
-    public Goal(string _title, string _description, int _points)
+    public Goal(string title, string description, int points)
     {
-        title = _title;
-        description = _description;
-        points = _points;
-        completion = false;
+        _title = title;
+        _description = description;
+        _points = points;
+        _completion = false;
     }
     public string GetTitle()
     {
-        return title;
+        return _title;
     }
     public virtual string GetDescription()
     {
-        return $"({description})";
+        return $"({_description})";
     }
     public int GetPoints()
     {
-        return points;
+        return _points;
     }
     public virtual string GetCompletion()
     {
-        if (completion == true)
+        if (_completion == true)
         {
             return "[X]";
         }
@@ -45,7 +45,7 @@ class Goal
 
     public virtual string GetSaveString()
     {
-        return $"{typeName}, {title}, {description}, {points}, {completion}";
+        return $"{_typeName}, {_title}, {_description}, {_points}, {_completion}";
     }
 
     public virtual void MarkComplete()
