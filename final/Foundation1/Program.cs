@@ -10,7 +10,7 @@ class Program
         Comment comment_3 = new Comment("CheeseGrilled", "My superpower is forgetting everything I've just been told but remembering that cringe moment from 10 years ago in 4k UHD 60fps");
         Video video_1 = new Video("when your superpower is really lame", "Daniel Thrasher", 41, comment_1, comment_2, comment_3);
 
-        comment_1 = new Comment("leightonpetty4817", "We got a “This Game Blows” joke, that makes me so happy");
+        comment_1 = new Comment("leightonpetty4817", "We got a \"This Game Blows\" joke, that makes me so happy");
         comment_2 = new Comment("Segastar1", "Liquidate the company is still one of my favorite endings in a Scott the Woz episode");
         comment_3 = new Comment("Orangienblue", "Scott: uploads on a Friday\nMe: is that a threat?");
         Video video_2 = new Video("Wii Play Motion | Eh, Why? - Scott The Woz", "Scott The Woz", 708, comment_1, comment_2, comment_3); //So I've been doing actual videos, this is how it's set up, look it up if you don't believe me
