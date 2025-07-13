@@ -112,11 +112,11 @@ class Menu
         }
         if (count == 15)
         {
-            Console.WriteLine("You got every achievement! Nice Job!");
+            Console.WriteLine("\nYou got every achievement! Nice Job!");
         }
         else
         {
-            Console.WriteLine($"Your next milestone is at {next} points");
+            Console.WriteLine($"\nYour next milestone is at {next} points");
         }
     }
 }
