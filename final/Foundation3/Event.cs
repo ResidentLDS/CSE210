@@ -4,7 +4,7 @@ class Event
     protected string _description;
     protected string _date;
     protected string _time;
-    protected string _address;
+    protected Address _address;
 
     public Event(string title, string description, string date, string time,
     string address)
@@ -13,7 +13,7 @@ class Event
         _description = description;
         _date = date;
         _time = time;
-        _address = address;
+        _address = new Address(address);
     }
 
     public string GetTitle()
@@ -34,6 +34,6 @@ class Event
     }
     public string GetAddress()
     {
-        return _address;
+        return _address.PrintAddress();
     }
 }
