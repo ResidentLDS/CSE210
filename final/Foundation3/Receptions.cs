@@ -1,0 +1,3 @@
+class Receptions : Event
+{
+}

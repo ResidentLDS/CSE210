@@ -1,0 +1,4 @@
+class Outdoor : Event
+{
+    
+}
