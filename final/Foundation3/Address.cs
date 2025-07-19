@@ -25,6 +25,6 @@ class Address // So it said to use an address class, so I kinda copied some code
 
     public string PrintAddress()
     {
-        return $"{_streetAddress} \n{_city}, {_state} \n{_country}";
+        return $"{_streetAddress}\n{_city}, {_state} \n{_country}";
     }
 }

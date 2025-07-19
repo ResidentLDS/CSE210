@@ -1,5 +1,6 @@
 class Event
 {
+    protected string _eventType;
     protected string _title;
     protected string _description;
     protected string _date;
@@ -16,24 +17,26 @@ class Event
         _address = new Address(address);
     }
 
-    public string GetTitle()
+
+    public void GetShortDescription()
     {
-        return _title;
+        Console.WriteLine($"-{_eventType}-\n{_title}: {_date}");
     }
-    public string GetDescription()
+
+    public void GetStandardDetails()
     {
-        return _description;
+        Console.WriteLine($"{_title}: {_description}\n{_time} on {_date}");
     }
-    public string GetDate()
+
+    public void GetFullDetails()
     {
-        return _date;
+        GetStandardDetails(); //I realized what I was typing here matched what I wanted from the short description perfectly so I did this instead.
+        Console.WriteLine($"{_date}, {_time},\nAddress: {_address.PrintAddress()}");
+        SpecialDetails();
     }
-    public string GetTime()
+
+    public virtual void SpecialDetails()
     {
-        return _time;
-    }
-    public string GetAddress()
-    {
-        return _address.PrintAddress();
+
     }
 }
